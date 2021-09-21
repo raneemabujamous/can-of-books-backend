@@ -26,23 +26,25 @@ const createBook = async (req, res) => {
     })
     console.log(newObj, "hi from user");
     newObj.save();
-    res.json(newObj);
+
+    let createbook= await usermodel.find({});
+    res.json(createbook);
+
+   
 }
 
 
-const deleteBook = (req,res) => {
-    try{
-        const id=req.params.id;
-
-      
-            usermodel.deleteOne({ _id: book },(error,book)=>{
-                res.json(book);
-    });
-    }
-    catch(error){
-        res.send(error.info);
-    }
-    };
+const deleteBook=  (req,res)=>{
+    let id=req.params.id;
+    usermodel.findByIdAndDelete(id,async (err,data)=>{
+        if(err){
+            res.status(500).send("an error occured");
+        }
+        let booksList= await usermodel.find({});
+        res.json(booksList);
+           
+    })
+}
 module.exports = {
     usercontroolers,
     createBook,

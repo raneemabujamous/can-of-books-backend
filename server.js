@@ -12,7 +12,7 @@ const MONGO_DB_URL = process.env.MONGO_DB_URL
 const {usercontroolers ,createBook ,deleteBook} = require('./controllers/user.cont')
 // const {seedfunction} = require('./module/User')
 
-mongoose.connect(`${MONGO_DB_URL}/book`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb+srv://raneem1967:raneem1967@cluster0.7jxrk.mongodb.net/datadase1`, { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(express.json());
 
 // app.get('/app' , (req,res)=>{
