@@ -7,9 +7,15 @@ let usercontroolers = (req, res) => {
         res.json(data);
     })
 }
-
+//     StudentModel.find({}).then(data=>{res.status(200).json(data)});
+// }
+// const deleteStudentController=(req,res)=>{
+//     // PARAMS
+//     let studnetID=req.params.id;
+//     StudentModel.findByIdAndDelete(studnetID).then(()=>{
+//         StudentModel.find().then(data=>res.json(data));
+//     });
 const createBook = async (req, res) => {
-    // console.log(req.body)
     const email= req.body.email;
     const title = req.body.title;
     const description = req.body.description;
@@ -24,8 +30,8 @@ const createBook = async (req, res) => {
         status: status
 
     })
-    console.log(newObj, "hi from user");
     newObj.save();
+  usermodel.find({}).then(data=>{res.status(200).json(data)});
 
     let createbook= await usermodel.find({});
     res.json(createbook);
