@@ -45,9 +45,32 @@ const deleteBook=  (req,res)=>{
            
     })
 }
+
+
+const updateBook = async(req,res)=>{
+    console.log(req.params,"dddd")
+    let bookId = req.params.id
+    let upduteData = req.body
+    console.log(upduteData,bookId,"from update")
+    usermodel.findOne({_id:bookId}).then(book=>{
+        console.log(book)
+        book.email = upduteData.email
+        book.title = upduteData.title
+        book.description = upduteData.description
+        book.status = upduteData.status
+        book.save()
+
+    })
+     let updatedbookList=await usermodel.find({});
+    res.status(200).send(updatedbookList);
+}
+    // upduteData.save()
+
+ 
+   
 module.exports = {
     usercontroolers,
     createBook,
     deleteBook,
-
+    updateBook
 }
