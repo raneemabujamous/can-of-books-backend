@@ -1,14 +1,14 @@
-'use strict'
-const mongoose = require('mongoose');
+// 'use strict'
+// const mongoose = require('mongoose');
 
-const bookSchema = new mongoose.Schema({
-    title:String,
-    description:String,
-    status:String,
-})
+// const bookSchema = new mongoose.Schema({
+//     title:String,
+//     description:String,
+//     status:String,
+// })
 
-const bookModel = mongoose.model('book',bookSchema)
+// const bookModel = mongoose.model('book',bookSchema)
 
 
-module.exports=bookSchema
+// module.exports=bookSchema
 
